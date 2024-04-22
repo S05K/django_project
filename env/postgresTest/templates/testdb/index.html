@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% for i in p %}
+    <li>Name: {{i.product_name}}</li>
+    <li>Price: {{i.price}}</li>
+    <select name="" id="">
+        {% for j in a %}
+        <option value="">{{j.id}}</option>
+        
+    </select>
+    <li><a href="{% url 'testdb:create' i.id j.id %}">add_account</a></li>
+    {% endfor %}
+    {% endfor %}
+</body>
+</html>

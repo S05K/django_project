@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'user/style.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    {% if jobs %}
+    <div class="container">
+    <div class="job-card">
+        {% for i in jobs %}
+        <h2 class="job-title">{{ i.title }}</h2>
+        <p class="job-description">{{ i.description }}</p>
+        <img class="job-image" src="{{ i.image.url }}" alt="{{ i.title }}">
+        <a class="apply-button" href="{% url 'user:apply_for_job' user.id i.id %}">Apply</a>
+        {% endfor %}
+    </div>
+    </div>
+    {% else %}
+    <div class="no-jobs" style="text-align: center;">
+        <h1>No jobs available you are looking for</h1>
+    </div>
+    {% endif %}
+</body>
+</html>
